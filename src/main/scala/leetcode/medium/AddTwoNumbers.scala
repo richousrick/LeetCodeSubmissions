@@ -1,5 +1,7 @@
 package leetcode.medium
 
+import leetcode.Utils._
+
 import scala.annotation.tailrec
 import scala.util.Random
 
@@ -47,6 +49,8 @@ object AddTwoNumbers {
     for (_ <- 0 to 1000000) {
       testAdd(Random.nextInt(10000), Random.nextInt(10000))
     }
+
+    println("Success")
   }
 
   /**
@@ -66,21 +70,11 @@ object AddTwoNumbers {
     val linkedRes = addTwoNumbers(linkedA, linkedB)
     val res = convertListToInt(linkedRes)
 
-    if (res != a + b) {
-      throw new AssertionError(s"Function Broke with $a, $b Should Be ${a + b}, Returned $res")
-    }
-
+    test(convertListToInt, linkedRes, a + b)
 
     // test conversion functions
-    val aa = convertListToInt(linkedA)
-    if (aa != a) {
-      throw new AssertionError(s"Tester Broke $a is converted to $aa for input $a, $b")
-    }
-
-    val bb = convertListToInt(linkedB)
-    if (bb != b) {
-      throw new AssertionError(s"Tester Broke $b is converted to $bb for input $a, $b")
-    }
+    test(convertListToInt, linkedA, a)
+    test(convertListToInt, linkedB, b)
 
     true
   }
@@ -106,16 +100,26 @@ object AddTwoNumbers {
    * Converts a linked list back into the integer it is representing
    *
    * @param targetInput list to convert into an integer
-   * @param result      current recursive result
-   * @param sig         significance of current digit. i.e. 2 indicates the head of the list is in hundreds (10^2^)
    * @return the integer represented by the input list
    */
-  @tailrec
-  def convertListToInt(targetInput: ListNode, result: Int = 0, sig: Int = 0): Int = {
-    val current = result + (targetInput.x * Math.pow(10, sig)).toInt
-    targetInput.next match {
-      case null => current
-      case a => convertListToInt(a, current, sig + 1)
+  def convertListToInt(targetInput: ListNode): Int = {
+    /**
+     * Converts a linked list back into the integer it is representing
+     *
+     * @param targetInput list to convert into an integer
+     * @param result      current recursive result
+     * @param sig         significance of current digit. i.e. 2 indicates the head of the list is in hundreds (10^2^)
+     * @return the integer represented by the input list
+     */
+    @tailrec
+    def convertListToIntI(targetInput: ListNode, result: Int = 0, sig: Int = 0): Int = {
+      val current = result + (targetInput.x * Math.pow(10, sig)).toInt
+      targetInput.next match {
+        case null => current
+        case a => convertListToIntI(a, current, sig + 1)
+      }
     }
+
+    convertListToIntI(targetInput)
   }
 }

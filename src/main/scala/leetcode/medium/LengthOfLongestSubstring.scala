@@ -1,5 +1,7 @@
 package leetcode.medium
 
+import leetcode.Utils._
+
 import scala.collection.mutable
 
 object LengthOfLongestSubstring {
@@ -33,30 +35,17 @@ object LengthOfLongestSubstring {
   }
 
   def main(args: Array[String]): Unit = {
-    test("abcabcbb", 3)
-    test("abcabcbbcfacb", 4)
-    test("abcabcbbcfacbd", 5)
+    test(lengthOfLongestSubstring, "abcabcbb", 3)
+    test(lengthOfLongestSubstring, "abcabcbbcfacb", 4)
+    test(lengthOfLongestSubstring, "abcabcbbcfacbd", 5)
 
-    test("pwwkew", 3)
+    test(lengthOfLongestSubstring, "pwwkew", 3)
 
-    test("bbbbbb", 1)
+    test(lengthOfLongestSubstring, "bbbbbb", 1)
 
-    test("", 0)
+    test(lengthOfLongestSubstring, "", 0)
 
     println("Tests completed successfully")
   }
 
-  /**
-   * Asserts [[leetcode.medium.LengthOfLongestSubstring#lengthOfLongestSubstring lengthOfLongestSubstring]] will return the expected value when given a specified input
-   *
-   * @param input          to pass to lengthOfLongestSubstring
-   * @param expectedResult of lengthOfLongestSubstring when given the specified input
-   * @throws AssertionError if lengthOfLongestSubstring does not return the expected result
-   */
-  def test(input: String, expectedResult: Int): Unit = {
-    val actualResult = lengthOfLongestSubstring(input)
-    if (actualResult != expectedResult) {
-      throw new AssertionError(s"""Expected $expectedResult got $actualResult for input "$input"""")
-    }
-  }
 }

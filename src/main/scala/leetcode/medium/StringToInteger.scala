@@ -1,5 +1,7 @@
 package leetcode.medium
 
+import leetcode.Utils._
+
 object StringToInteger {
 	def myAtoi(str: String): Int = {
 		if (str.isEmpty)
@@ -97,86 +99,71 @@ object StringToInteger {
 
 	def main(args: Array[String]): Unit = {
 		// test simple +- nums
-		testAtoi("42", 42)
-		testAtoi("+38", 38)
-		testAtoi("-27", -27)
+		test(myAtoi, "42", 42)
+		test(myAtoi, "+38", 38)
+		test(myAtoi, "-27", -27)
 
 		// test leading whitespace
-		testAtoi("      -42", -42)
-		testAtoi("    +12", 12)
-		testAtoi("         76", 76)
+		test(myAtoi, "      -42", -42)
+		test(myAtoi, "    +12", 12)
+		test(myAtoi, "         76", 76)
 
 		// test multiSign fails
-		testAtoi("+-23", 0)
-		testAtoi("-+38", 0)
+		test(myAtoi, "+-23", 0)
+		test(myAtoi, "-+38", 0)
 
 		// test invalid start
-		testAtoi("words and 987", 0)
-		testAtoi("word42", 0)
-		testAtoi("word+36", 0)
-		testAtoi("+ 12", 0)
-		testAtoi(" + 12", 0)
-		testAtoi("- 48", 0)
-		testAtoi(" - 65", 0)
+		test(myAtoi, "words and 987", 0)
+		test(myAtoi, "word42", 0)
+		test(myAtoi, "word+36", 0)
+		test(myAtoi, "+ 12", 0)
+		test(myAtoi, " + 12", 0)
+		test(myAtoi, "- 48", 0)
+		test(myAtoi, " - 65", 0)
 
 		// test end
-		testAtoi("-48 3", -48)
-		testAtoi("13a", 13)
-		testAtoi("13 Appt. 12", 13)
-		testAtoi("73-5", 73)
+		test(myAtoi, "-48 3", -48)
+		test(myAtoi, "13a", 13)
+		test(myAtoi, "13 Appt. 12", 13)
+		test(myAtoi, "73-5", 73)
 
 		// test range
-		testAtoi(Integer.MAX_VALUE + "", Integer.MAX_VALUE)
-		testAtoi(Integer.MAX_VALUE - 1L + "", Integer.MAX_VALUE - 1)
-		testAtoi(Integer.MAX_VALUE + 1L + "", Integer.MAX_VALUE)
-		testAtoi(Integer.MAX_VALUE + 1000L + "", Integer.MAX_VALUE)
-		testAtoi(Long.MaxValue + "", Integer.MAX_VALUE)
-		testAtoi(Long.MaxValue + "1234", Integer.MAX_VALUE)
+		test(myAtoi, Integer.MAX_VALUE + "", Integer.MAX_VALUE)
+		test(myAtoi, Integer.MAX_VALUE - 1L + "", Integer.MAX_VALUE - 1)
+		test(myAtoi, Integer.MAX_VALUE + 1L + "", Integer.MAX_VALUE)
+		test(myAtoi, Integer.MAX_VALUE + 1000L + "", Integer.MAX_VALUE)
+		test(myAtoi, Long.MaxValue + "", Integer.MAX_VALUE)
+		test(myAtoi, Long.MaxValue + "1234", Integer.MAX_VALUE)
 
-		testAtoi(Integer.MIN_VALUE + "", Integer.MIN_VALUE)
-		testAtoi(Integer.MIN_VALUE + 1L + "", Integer.MIN_VALUE + 1)
-		testAtoi(Integer.MIN_VALUE - 1L + "", Integer.MIN_VALUE)
-		testAtoi(Integer.MIN_VALUE - 1000L + "", Integer.MIN_VALUE)
-		testAtoi(Long.MinValue + "", Integer.MIN_VALUE)
-		testAtoi(Long.MinValue + "1234", Integer.MIN_VALUE)
+		test(myAtoi, Integer.MIN_VALUE + "", Integer.MIN_VALUE)
+		test(myAtoi, Integer.MIN_VALUE + 1L + "", Integer.MIN_VALUE + 1)
+		test(myAtoi, Integer.MIN_VALUE - 1L + "", Integer.MIN_VALUE)
+		test(myAtoi, Integer.MIN_VALUE - 1000L + "", Integer.MIN_VALUE)
+		test(myAtoi, Long.MinValue + "", Integer.MIN_VALUE)
+		test(myAtoi, Long.MinValue + "1234", Integer.MIN_VALUE)
 
 		// test None
-		testAtoi("", 0)
-		testAtoi("+", 0)
-		testAtoi("-", 0)
+		test(myAtoi, "", 0)
+		test(myAtoi, "+", 0)
+		test(myAtoi, "-", 0)
 
-		testAtoi("+hi", 0)
-		testAtoi("-hi", 0)
-		testAtoi("hi", 0)
+		test(myAtoi, "+hi", 0)
+		test(myAtoi, "-hi", 0)
+		test(myAtoi, "hi", 0)
 
-		testAtoi("+ hi", 0)
-		testAtoi("- hi", 0)
-		testAtoi(" hi", 0)
+		test(myAtoi, "+ hi", 0)
+		test(myAtoi, "- hi", 0)
+		test(myAtoi, " hi", 0)
 
 		// test leading 0's
-		testAtoi("  0000000000012345678", 12345678)
-		testAtoi("  -0000000000012345678", -12345678)
-		testAtoi("0100", 100)
+		test(myAtoi, "  0000000000012345678", 12345678)
+		test(myAtoi, "  -0000000000012345678", -12345678)
+		test(myAtoi, "0100", 100)
 
-		testAtoi("0-1", 0)
-		testAtoi("0+1", 0)
+		test(myAtoi, "0-1", 0)
+		test(myAtoi, "0+1", 0)
 
 
 		println("Sucessful")
 	}
-
-
-	/**
-	 * Tests the [[leetcode.medium.StringToInteger#myAtoi]] function returns the expected integer when given a specified input
-	 *
-	 * @param input    to test the function on
-	 * @param expected return from calling myAtoi(input)
-	 * @return true if myAtoi(input) results in the expected value
-	 * @throws AssertionError if myAtoi(input) does not return the expected value
-	 */
-	def testAtoi(input: String, expected: Int): Boolean =
-		myAtoi(input) match {
-			case got if got == expected => true
-			case result => throw new AssertionError(s"Expected '$input' to result in $expected, Got $result")
-		}
 }
