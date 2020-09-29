@@ -1,4 +1,4 @@
-package medium
+package leetcode.medium
 
 import scala.annotation.tailrec
 import scala.util.Random
@@ -50,13 +50,13 @@ object AddTwoNumbers {
   }
 
   /**
-   * Test [[medium.AddTwoNumbers#addTwoNumbers]] works as expected on a given pair of integers
+   * Test [[leetcode.medium.AddTwoNumbers#addTwoNumbers]] works as expected on a given pair of integers
    *
    * @param a first integer to add
    * @param b second integer to add
    * @return true if the function successfully added the two integers
-   * @throws AssertionError if [[medium.AddTwoNumbers#addTwoNumbers addTwoNumbers]] or
-   *                        [[medium.AddTwoNumbers#convertIntToList convertIntToList]] / [[medium.AddTwoNumbers#convertListToInt convertListToInt]]
+   * @throws AssertionError if [[leetcode.medium.AddTwoNumbers#addTwoNumbers addTwoNumbers]] or
+   *                        [[leetcode.medium.AddTwoNumbers#convertIntToList convertIntToList]] / [[leetcode.medium.AddTwoNumbers#convertListToInt convertListToInt]]
    *                        are not working as expected
    */
   def testAdd(a: Int, b: Int): Boolean = {

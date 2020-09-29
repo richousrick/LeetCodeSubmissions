@@ -1,4 +1,4 @@
-package medium
+package leetcode.medium
 
 import scala.collection.mutable
 
@@ -47,7 +47,7 @@ object LengthOfLongestSubstring {
   }
 
   /**
-   * Asserts [[medium.LengthOfLongestSubstring#lengthOfLongestSubstring lengthOfLongestSubstring]] will return the expected value when given a specified input
+   * Asserts [[leetcode.medium.LengthOfLongestSubstring#lengthOfLongestSubstring lengthOfLongestSubstring]] will return the expected value when given a specified input
    *
    * @param input          to pass to lengthOfLongestSubstring
    * @param expectedResult of lengthOfLongestSubstring when given the specified input

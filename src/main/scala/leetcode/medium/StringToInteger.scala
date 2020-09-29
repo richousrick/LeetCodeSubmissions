@@ -1,4 +1,4 @@
-package medium
+package leetcode.medium
 
 object StringToInteger {
 	def myAtoi(str: String): Int = {
@@ -167,7 +167,7 @@ object StringToInteger {
 
 
 	/**
-	 * Tests the [[medium.StringToInteger#myAtoi]] function returns the expected integer when given a specified input
+	 * Tests the [[leetcode.medium.StringToInteger#myAtoi]] function returns the expected integer when given a specified input
 	 *
 	 * @param input    to test the function on
 	 * @param expected return from calling myAtoi(input)

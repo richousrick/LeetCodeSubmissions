@@ -1,4 +1,4 @@
-package easy
+package leetcode.easy
 
 object TwoSum {
 	def twoSum(nums: Array[Int], target: Int): Array[Int] = {
