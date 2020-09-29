@@ -1,6 +1,15 @@
 package leetcode.easy
 
 object TwoSum {
+
+	/**
+	 * Finds the indices of the two numbers in array nums that add up to target.
+	 * Beats Approx: 89.88% runtime, 39.95% memory
+	 *
+	 * @param nums   array of integers to search though
+	 * @param target number that a pair of integers in nums should add to
+	 * @return the indices of the pair of integers in nums that add to target
+	 */
 	def twoSum(nums: Array[Int], target: Int): Array[Int] = {
 		//  sort and remove elements that even when added to the smallest number are too large
 		val sorted = {

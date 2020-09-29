@@ -3,6 +3,14 @@ package leetcode.medium
 import leetcode.Utils._
 
 object StringToInteger {
+
+	/**
+	 * Converts a list of characters to a signed Integer
+	 * Beats Approx: 95.24% runtime, 44.44% memory
+	 *
+	 * @param str , list of characters to parse as an integer
+	 * @return the signed integer located at the start of the string or 0 if none exist
+	 */
 	def myAtoi(str: String): Int = {
 		if (str.isEmpty)
 			0

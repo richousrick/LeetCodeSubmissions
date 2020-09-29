@@ -12,6 +12,16 @@ object AddTwoNumbers {
     var x: Int = _x
   }
 
+  /**
+   * Adds two integers with both the input and output being represented by a linked list.
+   * Each list contains integers indexed by their significance, with the head pointing to the least significant integer.
+   * e.g. 1234 would be represented as 4 -> 3 -> 2 -> 1.
+   * Beats Approx: 95.98% runtime, 37.08% memory
+   *
+   * @param l1 first integer to add
+   * @param l2 second integer to add
+   * @return the result of l1 + l2 represented as a linked list
+   */
   def addTwoNumbers(l1: ListNode, l2: ListNode): ListNode = {
     @tailrec
     def addNumbers(l1: ListNode, l2: ListNode, remainder: Int, callStack: ListNode => ListNode): ListNode = {
