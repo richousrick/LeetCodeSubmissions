@@ -1,7 +1,5 @@
 package leetcode.medium
 
-import leetcode.Utils._
-
 import scala.collection.mutable
 
 object LengthOfLongestSubstring {
@@ -43,20 +41,4 @@ object LengthOfLongestSubstring {
     }
     math.max(longest, windowEnd - windowStart)
   }
-
-
-  def main(args: Array[String]): Unit = {
-    test(lengthOfLongestSubstring, "abcabcbb", 3)
-    test(lengthOfLongestSubstring, "abcabcbbcfacb", 4)
-    test(lengthOfLongestSubstring, "abcabcbbcfacbd", 5)
-
-    test(lengthOfLongestSubstring, "pwwkew", 3)
-
-    test(lengthOfLongestSubstring, "bbbbbb", 1)
-
-    test(lengthOfLongestSubstring, "", 0)
-
-    println("Tests completed successfully")
-  }
-
 }

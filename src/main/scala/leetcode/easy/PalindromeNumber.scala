@@ -1,7 +1,5 @@
 package leetcode.easy
 
-import leetcode.Utils._
-
 import scala.annotation.tailrec
 
 object PalindromeNumber {
@@ -40,15 +38,5 @@ object PalindromeNumber {
 			false
 		else
 			isPalindrome(x, math.pow(10, math.floor(math.log10(x))))
-	}
-
-	def main(args: Array[String]): Unit = {
-		test(isPalindrome, 121, true)
-		test(isPalindrome, -121, false)
-		test(isPalindrome, 0, true)
-		test(isPalindrome, 10, false)
-
-
-		println("Successful")
 	}
 }

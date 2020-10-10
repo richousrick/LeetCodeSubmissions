@@ -1,7 +1,5 @@
 package leetcode.medium
 
-import leetcode.Utils._
-
 object StringToInteger {
 
 	/**
@@ -25,7 +23,7 @@ object StringToInteger {
 	 * @param str , list of characters to parse as an integer
 	 * @return the signed integer located at the start of the string or 0 if none exist
 	 */
-	def atoiInner(str: List[Char]): Int = {
+	private def atoiInner(str: List[Char]): Int = {
 		//Int in range 0-2 where:
 		//	 0: Undefined assumed positive
 		//	 1: Defined Positive
@@ -103,75 +101,5 @@ object StringToInteger {
 			case _ => math.min(unsignedResult, Integer.MAX_VALUE).toInt
 		}
 		res
-	}
-
-	def main(args: Array[String]): Unit = {
-		// test simple +- nums
-		test(myAtoi, "42", 42)
-		test(myAtoi, "+38", 38)
-		test(myAtoi, "-27", -27)
-
-		// test leading whitespace
-		test(myAtoi, "      -42", -42)
-		test(myAtoi, "    +12", 12)
-		test(myAtoi, "         76", 76)
-
-		// test multiSign fails
-		test(myAtoi, "+-23", 0)
-		test(myAtoi, "-+38", 0)
-
-		// test invalid start
-		test(myAtoi, "words and 987", 0)
-		test(myAtoi, "word42", 0)
-		test(myAtoi, "word+36", 0)
-		test(myAtoi, "+ 12", 0)
-		test(myAtoi, " + 12", 0)
-		test(myAtoi, "- 48", 0)
-		test(myAtoi, " - 65", 0)
-
-		// test end
-		test(myAtoi, "-48 3", -48)
-		test(myAtoi, "13a", 13)
-		test(myAtoi, "13 Appt. 12", 13)
-		test(myAtoi, "73-5", 73)
-
-		// test range
-		test(myAtoi, Integer.MAX_VALUE + "", Integer.MAX_VALUE)
-		test(myAtoi, Integer.MAX_VALUE - 1L + "", Integer.MAX_VALUE - 1)
-		test(myAtoi, Integer.MAX_VALUE + 1L + "", Integer.MAX_VALUE)
-		test(myAtoi, Integer.MAX_VALUE + 1000L + "", Integer.MAX_VALUE)
-		test(myAtoi, Long.MaxValue + "", Integer.MAX_VALUE)
-		test(myAtoi, Long.MaxValue + "1234", Integer.MAX_VALUE)
-
-		test(myAtoi, Integer.MIN_VALUE + "", Integer.MIN_VALUE)
-		test(myAtoi, Integer.MIN_VALUE + 1L + "", Integer.MIN_VALUE + 1)
-		test(myAtoi, Integer.MIN_VALUE - 1L + "", Integer.MIN_VALUE)
-		test(myAtoi, Integer.MIN_VALUE - 1000L + "", Integer.MIN_VALUE)
-		test(myAtoi, Long.MinValue + "", Integer.MIN_VALUE)
-		test(myAtoi, Long.MinValue + "1234", Integer.MIN_VALUE)
-
-		// test None
-		test(myAtoi, "", 0)
-		test(myAtoi, "+", 0)
-		test(myAtoi, "-", 0)
-
-		test(myAtoi, "+hi", 0)
-		test(myAtoi, "-hi", 0)
-		test(myAtoi, "hi", 0)
-
-		test(myAtoi, "+ hi", 0)
-		test(myAtoi, "- hi", 0)
-		test(myAtoi, " hi", 0)
-
-		// test leading 0's
-		test(myAtoi, "  0000000000012345678", 12345678)
-		test(myAtoi, "  -0000000000012345678", -12345678)
-		test(myAtoi, "0100", 100)
-
-		test(myAtoi, "0-1", 0)
-		test(myAtoi, "0+1", 0)
-
-
-		println("Sucessful")
 	}
 }

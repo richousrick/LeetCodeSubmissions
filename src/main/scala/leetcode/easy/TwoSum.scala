@@ -34,13 +34,4 @@ object TwoSum {
 		}
 		Array()
 	}
-
-
-	def main(args: Array[String]): Unit = {
-		println(twoSum(Array(2, 7, 11, 15), 9).toSet == Set(0, 1))
-
-		println(twoSum(Array(3, 2, 4), 6).toSet == Set(1, 2))
-
-		println(twoSum(Array(3, 3), 6).toSet == Set(0, 1))
-	}
 }
