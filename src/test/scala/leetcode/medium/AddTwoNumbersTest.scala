@@ -1,6 +1,7 @@
 package leetcode.medium
 
 import leetcode.medium.AddTwoNumbers._
+import leetcode.predef.ListNode
 import org.scalatest.funsuite.AnyFunSuite
 
 import scala.annotation.tailrec

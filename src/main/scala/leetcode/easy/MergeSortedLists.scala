@@ -1,5 +1,7 @@
 package leetcode.easy
 
+import leetcode.predef.ListNode
+
 import scala.annotation.tailrec
 
 object MergeSortedLists {
@@ -66,7 +68,7 @@ object MergeSortedLists {
 					}
 				}
 				mergeTwoLists(lH, rH, Option(head).getOrElse(n), Option(tail).map(t => {
-					t.next = n;
+					t.next = n
 					n
 				}).getOrElse(n))
 		}
@@ -121,9 +123,4 @@ object MergeSortedLists {
 		}
 		resH
 	}
-}
-
-class ListNode(_x: Int = 0, _next: ListNode = null) {
-	var next: ListNode = _next
-	var x: Int = _x
 }

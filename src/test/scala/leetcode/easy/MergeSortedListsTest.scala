@@ -1,5 +1,6 @@
 package leetcode.easy
 
+import leetcode.predef.ListNode
 import org.scalatest.funsuite.AnyFunSuite
 
 class MergeSortedListsTest extends AnyFunSuite {
