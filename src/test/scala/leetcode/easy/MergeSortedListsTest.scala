@@ -1,5 +1,6 @@
 package leetcode.easy
 
+import leetcode.TestUtils.listBuilder
 import leetcode.predef.ListNode
 import org.scalatest.funsuite.AnyFunSuite
 
@@ -40,12 +41,5 @@ class MergeSortedListsTest extends AnyFunSuite {
 			} else ""
 		}
 
-	/**
-	 * Builder method for constructing lists
-	 *
-	 * @param ints desired list of integers
-	 * @return a ListNode representing the given list of integers
-	 */
-	def listBuilder(ints: Int*): ListNode =
-		ints.dropRight(1).foldRight(new ListNode(ints.last))((i, l) => new ListNode(i, l))
+
 }
